@@ -1,4 +1,12 @@
-<% @products.each do |product| %>
-  <h1><%= product.name %></h1>
-  <p><%= product.price %></p>
+<%= search_form_for @q do |f| %>
+  # Tìm kiếm với name like %abc%
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+  <%# {"q"=>{"name_cont"=>"but"}, "commit"=>"Search"} %>
+  <br>
+  # Tìm kiếm nhiều field like %abc%
+  <%# <%= f.label :name_or_description_or_content_cont %>
+  <%# <%= f.search_field :name_or_description_or_content_cont %>
+
+  <%= f.submit %>
 <% end %>
